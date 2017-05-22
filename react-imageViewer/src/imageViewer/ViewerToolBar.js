@@ -15,10 +15,14 @@ export default class ViewerToolbar extends PureComponent {
     this.props.onAction(type)
   }
   shouldComponentUpdate(nextProps){
-      const {activeIndex} = nextProps;
+      const {activeIndex,length} = nextProps;
       if(activeIndex!=this.props.activeIndex){
           return true
       }
+      if(length!=this.props.length){
+          return true
+      }
+
       return false
   }
 

@@ -1,5 +1,6 @@
 import  React,{PureComponent} from 'react';
 import classnames from 'classnames/bind';
+import {isEqual} from 'lodash';
 import styles from "./style.css";
 let cn = classnames.bind(styles);
 
@@ -15,16 +16,20 @@ export default class ViewerNav extends PureComponent {
     this.props.onChangeImg(newIndex);
   }
 
-    shouldComponentUpdate(nextProps){
-        const {marginLeft,activeIndex} = nextProps;
-        if(marginLeft!=this.props.marginLeft){
-            return true
-        }
-        if(activeIndex!= this.props.activeIndex){
-            return true;
-        }
-        return false
-    }
+  shouldComponentUpdate(nextProps){
+      const {marginLeft,activeIndex,images} = nextProps;
+      if(marginLeft!=this.props.marginLeft){
+          return true
+      }
+      if(activeIndex!= this.props.activeIndex){
+          return true;
+      }
+      if(!isEqual(images,this.props.images)){
+          return true;
+      };
+
+      return false
+  }
 
   render() {
     let marginLeft =this.props.marginLeft;

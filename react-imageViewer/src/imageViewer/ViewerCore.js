@@ -485,6 +485,7 @@ export default class ViewerCore extends PureComponent{
         this.setState({
           visible: false,
           transitionEnd: false,
+           activeIndex:0
         });
       }, transitionDuration);
       return;
