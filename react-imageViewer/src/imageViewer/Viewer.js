@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import {isEqual} from 'lodash';
 import ViewerCore from './ViewerCore';
 
-export default class ViewerContainer extends PureComponent {
+export default class Viewer extends PureComponent {
 
   constructor() {
     super();
